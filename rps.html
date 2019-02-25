@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+<script>
+  function computerPlay(){
+    let a = Math.floor(Math.random() * 3) + 1
+    if (a == 1) {
+      let computerSelection = 'Rock'
+      alert (computerSelection);}
+    else if (a == 2) {
+      let computerSelection = 'Paper'
+      alert (computerSelection);}
+    else {
+      let computerSelection = 'Scissors'
+      alert (computerSelection);}
+  };
+  computerPlay();
+
+  let playerSelection = prompt ('Choose your Weapon (Rock, Paper, Scissors)');
+  if (playerSelection.toUpperCase() == 'ROCK') {
+    let b = 1
+    alert (b);}
+  else if (playerSelection.toUpperCase() == 'PAPER'){
+    let b = 2
+    alert (b);}
+  else if (playerSelection.toUpperCase() == 'SCISSORS'){
+    let b = 3
+    alert (b);}
+  else {
+    alert('Don\'t CHEAT! Choose a real weapon :)');}
+
+</script>
+</body>
+</html>
