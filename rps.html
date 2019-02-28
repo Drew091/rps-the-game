@@ -23,52 +23,66 @@
 //  computerPlay();
 
 //player selection where rock = 1, paper = 2 scissors = 3 else = repeat
-  function playerPlay(){
-    var playerSelectionString = prompt ('Choose your Weapon (Rock, Paper, Scissors)');
-    if (playerSelectionString.toUpperCase() == 'ROCK') {
-      let playerSelection = 1;
-      return playerSelection;}
-    else if (playerSelectionString.toUpperCase() == 'PAPER'){
-      let playerSelection = 2;
-      return playerSelection;}
-    else if (playerSelectionString.toUpperCase() == 'SCISSORS'){
-      let playerSelection = 3;
-      return playerSelection;}
-    else {
-      alert('Don\'t CHEAT! Choose a real weapon :)')
-      playRound(playerPlay(),computerPlay());}
+  function playerPlay() {
+      var playerSelectionString = prompt ('Choose your Weapon (Rock, Paper, Scissors)');
+      if (playerSelectionString.toUpperCase() == 'ROCK') {
+          let playerSelection = 1;
+          return playerSelection;
+      }
+      else if (playerSelectionString.toUpperCase() == 'PAPER') {
+          let playerSelection = 2;
+          return playerSelection;
+      }
+      else if (playerSelectionString.toUpperCase() == 'SCISSORS') {
+          let playerSelection = 3;
+          return playerSelection;
+      }
+      else {
+          let playerSelection = 0;
+          alert('Don\'t CHEAT! Choose a real weapon :)');
+          return playerSelection;
+      }
   };
 
+  var playerInput = 0;
 
-  function playRound(a,b){
-    console.log(a);
-    console.log(b);
-    if (a == b) {
-      document.write("It a Draw");}
-    else if (a == 1 && b == 3) {
-      document.write('You Win! Rock beats Scissors.')
-    }
-    else if (a == 2 && b == 1) {
-      document.write('You Win! Paper beats Rock.')
-    }
-    else if (a == 3 && b == 2) {
-      document.write('You Win! Scissors beats Paper.')
-    }
-    else if (a == 1 && b == 2) {
-      document.write('You Lose! Paper beats Rock.')
-    }
-    else if (a == 2 && b == 3) {
-      document.write('You Lose! Scissors beats Paper.')
-    }
-    else if (a == 3 && b == 1) {
-      document.write('You Lose! Rock beats Scissors.')
-    }
-    else {
-      document.write('');}
-    //  alert("Error in code");}
-    };
+  while (playerInput == 0) {
+      var playerInput = playerPlay();
+  }
 
-      playRound(playerPlay(),computerPlay());
+  function playRound(a,b) {
+      console.log(a);
+      console.log(b);
+      if (a == b) {
+          document.write("It a Draw");
+      }
+      else if (a == 1 && b == 3) {
+          document.write('You Win! Rock beats Scissors.')
+      }
+      else if (a == 2 && b == 1) {
+          document.write('You Win! Paper beats Rock.')
+      }
+      else if (a == 3 && b == 2) {
+          document.write('You Win! Scissors beats Paper.')
+      }
+      else if (a == 1 && b == 2) {
+          document.write('You Lose! Paper beats Rock.')
+      }
+      else if (a == 2 && b == 3) {
+          document.write('You Lose! Scissors beats Paper.')
+      }
+      else if (a == 3 && b == 1) {
+          document.write('You Lose! Rock beats Scissors.')
+      }
+      else {
+          document.write('');
+      }
+//        alert("Error in code");}
+  };
+
+  playRound(playerInput,computerPlay());
+
+  
 </script>
 </body>
 </html>
