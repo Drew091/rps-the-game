@@ -44,45 +44,100 @@
       }
   };
 
+function playerGame() {
+
   var playerInput = 0;
 
   while (playerInput == 0) {
       var playerInput = playerPlay();
+      return playerInput;
+    }
   }
 
   function playRound(a,b) {
-      console.log(a);
-      console.log(b);
+      console.log('PlayerSelection: ' + a);
+      console.log('ComputerSelection: ' + b);
       if (a == b) {
-          document.write("It a Draw");
+          document.write("It\'s a Draw" + '<br>');
+          var whoWin = 2;
       }
       else if (a == 1 && b == 3) {
-          document.write('You Win! Rock beats Scissors.')
+          document.write('You Win! Rock beats Scissors.' + '<br>');
+          var whoWin = 0;
       }
       else if (a == 2 && b == 1) {
-          document.write('You Win! Paper beats Rock.')
+          document.write('You Win! Paper beats Rock.' + '<br>');
+          var whoWin = 0;
       }
       else if (a == 3 && b == 2) {
-          document.write('You Win! Scissors beats Paper.')
+          document.write('You Win! Scissors beats Paper.' + '<br>');
+          var whoWin = 0;
       }
       else if (a == 1 && b == 2) {
-          document.write('You Lose! Paper beats Rock.')
+          document.write('You Lose! Paper beats Rock.' + '<br>');
+          var whoWin = 1;
       }
       else if (a == 2 && b == 3) {
-          document.write('You Lose! Scissors beats Paper.')
+          document.write('You Lose! Scissors beats Paper.' + '<br>');
+          var whoWin = 1;
       }
       else if (a == 3 && b == 1) {
-          document.write('You Lose! Rock beats Scissors.')
+          document.write('You Lose! Rock beats Scissors.' + '<br>');
+          var whoWin = 1;
       }
       else {
           document.write('');
       }
-//        alert("Error in code");}
+
+      return whoWin;
+      console.log(whoWin);
   };
 
-  playRound(playerInput,computerPlay());
+//  playRound(playerInput,computerPlay());
+//  function winCounter(c) {}
 
-  
+//  winCounter(playRound(playerGame(),computerPlay()))
+  function game() {
+      var playerWins = 0;
+      var computerWins = 0;
+
+      while (playerWins < 3 && computerWins < 3) {
+          var winCounter = playRound(playerGame(),computerPlay())
+          if(winCounter == 0) {
+              var playerWins = playerWins + 1;
+              console.log('playerWins:' + playerWins);
+              console.log('computerWins: ' + computerWins);
+          }
+          else if (winCounter == 1) {
+              var computerWins = computerWins + 1;
+              console.log('playerWins:' + playerWins);
+              console.log('computerWins: ' + computerWins);
+          }
+          else if (winCounter == 2) {
+              var playerWins = playerWins + 1;
+              var computerWins = computerWins + 1;
+              console.log('playerWins:' + playerWins);
+              console.log('computerWins: ' + computerWins);
+          }
+          else {
+            document.write('');
+            console.log('ez szar')
+          }
+      }
+      if (playerWins == 3 && computerWins == 3) {
+        alert('It\'s a Draw');
+      }
+      else if (computerWins == 3) {
+        alert('You Lose :(');
+      }
+      else if (playerWins == 3) {
+        alert('You Win!');
+      }
+      else {
+        document.write('');
+      }
+  }
+  game();
 </script>
 </body>
 </html>
